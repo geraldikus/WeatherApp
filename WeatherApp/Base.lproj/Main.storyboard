@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Zf4-rQ-NzP">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Zf4-rQ-NzP" customClass="ListCell" customModule="WeatherApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zf4-rQ-NzP" id="gMR-y9-0QL">
@@ -25,8 +25,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0n-5l-jI6">
-                                            <rect key="frame" x="10.000000000000004" y="9.3333333333333339" width="54.333333333333343" height="25.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <rect key="frame" x="10" y="10" width="150" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="ck6-mP-i7Z"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -55,15 +58,20 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="S0n-5l-jI6" firstAttribute="centerY" secondItem="gMR-y9-0QL" secondAttribute="centerY" id="0An-Bb-Clg"/>
-                                        <constraint firstItem="mLy-ZG-iv2" firstAttribute="centerY" secondItem="gMR-y9-0QL" secondAttribute="centerY" id="6vE-hT-wcm"/>
-                                        <constraint firstItem="nT9-LN-ezb" firstAttribute="centerY" secondItem="gMR-y9-0QL" secondAttribute="centerY" id="8VN-hV-NEN"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="nT9-LN-ezb" secondAttribute="trailing" id="Jom-xS-lGO"/>
-                                        <constraint firstItem="nT9-LN-ezb" firstAttribute="leading" secondItem="mLy-ZG-iv2" secondAttribute="trailing" constant="8" symbolic="YES" id="PmL-aq-7IM"/>
-                                        <constraint firstItem="mLy-ZG-iv2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="S0n-5l-jI6" secondAttribute="trailing" constant="8" symbolic="YES" id="cNC-94-oD7"/>
-                                        <constraint firstItem="S0n-5l-jI6" firstAttribute="leading" secondItem="gMR-y9-0QL" secondAttribute="leading" constant="10" id="wwf-8U-23s"/>
+                                        <constraint firstItem="nT9-LN-ezb" firstAttribute="centerY" secondItem="gMR-y9-0QL" secondAttribute="centerY" id="0uQ-fC-uFe"/>
+                                        <constraint firstItem="nT9-LN-ezb" firstAttribute="trailing" secondItem="gMR-y9-0QL" secondAttribute="trailingMargin" id="2LJ-5N-PRV"/>
+                                        <constraint firstItem="nT9-LN-ezb" firstAttribute="leading" secondItem="mLy-ZG-iv2" secondAttribute="trailing" constant="8" symbolic="YES" id="4iz-gf-nyh"/>
+                                        <constraint firstItem="S0n-5l-jI6" firstAttribute="leading" secondItem="gMR-y9-0QL" secondAttribute="leading" constant="10" id="7Cv-c1-XIy"/>
+                                        <constraint firstItem="S0n-5l-jI6" firstAttribute="centerY" secondItem="gMR-y9-0QL" secondAttribute="centerY" id="KiG-nO-jDt"/>
+                                        <constraint firstItem="mLy-ZG-iv2" firstAttribute="centerY" secondItem="gMR-y9-0QL" secondAttribute="centerY" id="c8w-pD-kHb"/>
+                                        <constraint firstItem="mLy-ZG-iv2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="S0n-5l-jI6" secondAttribute="trailing" constant="8" symbolic="YES" id="hxG-pX-3eK"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="conditionCityLabel" destination="mLy-ZG-iv2" id="Zzu-wv-8fs"/>
+                                    <outlet property="nameCityLabel" destination="S0n-5l-jI6" id="zHS-IY-6PQ"/>
+                                    <outlet property="tempCityLabel" destination="9RJ-HE-Gvu" id="bqA-fx-PoJ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

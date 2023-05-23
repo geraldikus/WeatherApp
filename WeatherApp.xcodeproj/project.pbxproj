@@ -11,12 +11,14 @@
 		3A849CBF2A1B8814005B77AA /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */; };
 		3A849CC22A1B8C7E005B77AA /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CC12A1B8C7E005B77AA /* WeatherData.swift */; };
 		3A849CC42A1B91FB005B77AA /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CC32A1B91FB005B77AA /* Weather.swift */; };
+		3AA537182A1CD5BE00B7B153 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA537172A1CD5BE00B7B153 /* ListCell.swift */; };
 		3ABECB312A1796CE00DB8127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABECB302A1796CE00DB8127 /* AppDelegate.swift */; };
 		3ABECB332A1796CE00DB8127 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABECB322A1796CE00DB8127 /* SceneDelegate.swift */; };
 		3ABECB382A1796CE00DB8127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABECB362A1796CE00DB8127 /* Main.storyboard */; };
 		3ABECB3A2A1796D200DB8127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABECB392A1796D200DB8127 /* Assets.xcassets */; };
 		3ABECB3D2A1796D200DB8127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABECB3B2A1796D200DB8127 /* LaunchScreen.storyboard */; };
 		3ABECB452A179A3700DB8127 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABECB442A179A3700DB8127 /* ListTableViewController.swift */; };
+		3AC802472A1C9B4100139F95 /* GetCitiesWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC802462A1C9B4100139F95 /* GetCitiesWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		3A849CC12A1B8C7E005B77AA /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		3A849CC32A1B91FB005B77AA /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		3AA537172A1CD5BE00B7B153 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		3ABECB2D2A1796CE00DB8127 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABECB302A1796CE00DB8127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ABECB322A1796CE00DB8127 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		3ABECB3C2A1796D200DB8127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ABECB3E2A1796D200DB8127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ABECB442A179A3700DB8127 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		3AC802462A1C9B4100139F95 /* GetCitiesWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCitiesWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				3ABECB442A179A3700DB8127 /* ListTableViewController.swift */,
+				3AA537172A1CD5BE00B7B153 /* ListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -70,6 +75,7 @@
 				3A849CC32A1B91FB005B77AA /* Weather.swift */,
 				3A849CC12A1B8C7E005B77AA /* WeatherData.swift */,
 				3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */,
+				3AC802462A1C9B4100139F95 /* GetCitiesWeather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,9 +182,11 @@
 			files = (
 				3ABECB452A179A3700DB8127 /* ListTableViewController.swift in Sources */,
 				3ABECB312A1796CE00DB8127 /* AppDelegate.swift in Sources */,
+				3AC802472A1C9B4100139F95 /* GetCitiesWeather.swift in Sources */,
 				3A849CBF2A1B8814005B77AA /* NetworkWeatherManager.swift in Sources */,
 				3ABECB332A1796CE00DB8127 /* SceneDelegate.swift in Sources */,
 				3A849CC22A1B8C7E005B77AA /* WeatherData.swift in Sources */,
+				3AA537182A1CD5BE00B7B153 /* ListCell.swift in Sources */,
 				3A849CBD2A1B877E005B77AA /* Constant.swift in Sources */,
 				3A849CC42A1B91FB005B77AA /* Weather.swift in Sources */,
 			);
@@ -335,6 +343,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +375,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
