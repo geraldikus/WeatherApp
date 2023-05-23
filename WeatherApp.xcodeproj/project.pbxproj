@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A4DF87C2A1CED570079C415 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DF87B2A1CED570079C415 /* DetailViewController.swift */; };
 		3A849CBD2A1B877E005B77AA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CBC2A1B877E005B77AA /* Constant.swift */; };
 		3A849CBF2A1B8814005B77AA /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */; };
 		3A849CC22A1B8C7E005B77AA /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CC12A1B8C7E005B77AA /* WeatherData.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A4DF87B2A1CED570079C415 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3A849CBC2A1B877E005B77AA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		3A849CC12A1B8C7E005B77AA /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				3ABECB442A179A3700DB8127 /* ListTableViewController.swift */,
 				3AA537172A1CD5BE00B7B153 /* ListCell.swift */,
+				3A4DF87B2A1CED570079C415 /* DetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				3ABECB332A1796CE00DB8127 /* SceneDelegate.swift in Sources */,
 				3A849CC22A1B8C7E005B77AA /* WeatherData.swift in Sources */,
 				3AA537182A1CD5BE00B7B153 /* ListCell.swift in Sources */,
+				3A4DF87C2A1CED570079C415 /* DetailViewController.swift in Sources */,
 				3A849CBD2A1B877E005B77AA /* Constant.swift in Sources */,
 				3A849CC42A1B91FB005B77AA /* Weather.swift in Sources */,
 			);

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xxa-b7-g2c">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -84,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="-109.16030534351144" y="-17.605633802816904"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="6uT-w2-RTc">
             <objects>
-                <viewController id="s68-RV-9ye" sceneMemberID="viewController">
+                <viewController id="s68-RV-9ye" customClass="DetailViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XMe-za-t1G">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,6 +251,16 @@
                             <constraint firstItem="dqn-5s-F4S" firstAttribute="trailing" secondItem="O5C-DM-odo" secondAttribute="trailing" constant="10" id="uO9-3r-Jhp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="conditionLabel" destination="Q8B-Im-ITx" id="oj1-Fy-hql"/>
+                        <outlet property="maxTempLabel" destination="bzW-if-9tZ" id="57Z-LH-tbq"/>
+                        <outlet property="minTempLabel" destination="XF7-g6-bmQ" id="g9T-0c-Xgr"/>
+                        <outlet property="nameCityLabel" destination="mEB-bV-H3E" id="WnH-W5-1VA"/>
+                        <outlet property="pressureLabel" destination="ocA-yG-yNb" id="fTo-ft-DdC"/>
+                        <outlet property="tempCity" destination="MJb-gI-sQ2" id="PR2-ti-qu0"/>
+                        <outlet property="viewCity" destination="aKE-zC-Fus" id="eng-lY-Ql4"/>
+                        <outlet property="windSpeedLabel" destination="CBU-zA-Pzd" id="VUq-bZ-Zf1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rh-Ff-mzA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
