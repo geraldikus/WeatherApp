@@ -91,7 +91,8 @@ class DetailViewController: UIViewController {
         }
         
         conditionLabel.text = weatherModel?.conditionString
-                tempCity.text = "\(weatherModel?.temperature ?? 0)"
+                //tempCity.text = "\(weatherModel?.temperature ?? 0)"
+        tempCity.text = weatherModel?.temperatureString
                 pressureLabel.text = "\(weatherModel?.pressureMm ?? 0)"
                 windSpeedLabel.text = "\(weatherModel?.windSpeed ?? 0)"
                 minTempLabel.text = "\(weatherModel?.tempMin ?? 0)"
