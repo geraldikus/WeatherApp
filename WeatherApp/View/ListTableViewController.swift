@@ -10,8 +10,9 @@ import UIKit
 class ListTableViewController: UITableViewController {
     
     let emptyCity = Weather()
+    
     var citiesArray = [Weather]()
-    let nameCitiesArray = ["Москва", "Пенза", "Уфа", "Новосибирск", "Челябинск", "Екатеринбург", "Томск", "Сочи"]
+    let nameCitiesArray = ["Москва", "Тихвин", "Пенза", "Уфа", "Новосибирск", "Челябинск", "Екатеринбург", "Томск", "Сочи"]
     
     let networkWeatherManager = NetworkWeatherManager()
 
@@ -33,10 +34,16 @@ class ListTableViewController: UITableViewController {
         getCityWeather(citiesArray: self.nameCitiesArray) { (index, weather) in
             self.citiesArray[index] = weather
             self.citiesArray[index].name = self.nameCitiesArray[index]
-            
+
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+
+//            DispatchQueue.main.async {
+//                self.citiesArray[index] = weather
+//                self.citiesArray[index].name = self.nameCitiesArray[index]
+//                self.tableView.reloadData()
+//            }
             
         }
     }
@@ -59,6 +66,16 @@ class ListTableViewController: UITableViewController {
         cell.configure(weather: weather)
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            let cityWeather = citiesArray[indexPath.row]
+            let dstVC = segue.destination as! DetailViewController
+            dstVC.weatherModel = cityWeather
+        }
     }
 
 }

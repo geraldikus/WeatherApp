@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftSVG
 
 class DetailViewController: UIViewController {
 
@@ -24,18 +25,52 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        refreshLables()
         // Do any additional setup after loading the view.
     }
+    
+//    func refreshLables() {
+//        nameCityLabel.text = weatherModel?.name
+//
+//        let url = URL(string: "https://yastatic.net/weather/i/icons/funky/dark/\(weatherModel!.conditionCode).svg.")
+//        let weatherImage = UIView(SVGURL: url!) {(image) in
+//            image.resizeToFit(self.viewCity.bounds)
+//        }
+//        self.viewCity.addSubview(weatherImage)
+//
+//        conditionLabel.text = weatherModel?.conditionString
+//        tempCity.text = "\((weatherModel?.temperature)!)"
+//        pressureLabel.text = "\((weatherModel?.pressureMm)!)"
+//        windSpeedLabel.text = "\((weatherModel?.windSpeed)!)"
+//        minTempLabel.text = "\((weatherModel?.tempMin)!)"
+//        minTempLabel.text = "\((weatherModel?.tempMax)!)"
+//    }
     
     func refreshLables() {
         nameCityLabel.text = weatherModel?.name
         
+        if let conditionCode = weatherModel?.conditionCode, let url = URL(string: "https://yastatic.net/weather/i/icons/funky/dark/\(conditionCode).svg") {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        let weatherImage = UIView(SVGData: data) { (image) in
+                            image.resizeToFit(self.viewCity.bounds)
+                        }
+                        self.viewCity.addSubview(weatherImage)
+                    }
+                }
+                print(url)
+            }.resume()
+        }
+        
         conditionLabel.text = weatherModel?.conditionString
-        tempCity.text = "\((weatherModel?.temperature)!)"
-        pressureLabel.text = "\((weatherModel?.pressureMm)!)"
-        windSpeedLabel.text = "\((weatherModel?.windSpeed)!)"
-        minTempLabel.text = "\((weatherModel?.tempMin)!)"
-        minTempLabel.text = "\((weatherModel?.tempMax)!)"
+        tempCity.text = "\(weatherModel?.temperature ?? 0)"
+        pressureLabel.text = "\(weatherModel?.pressureMm ?? 0)"
+        windSpeedLabel.text = "\(weatherModel?.windSpeed ?? 0)"
+        minTempLabel.text = "\(weatherModel?.tempMin ?? 0)"
+        maxTempLabel.text = "\(weatherModel?.tempMax ?? 0)"
     }
+
+
 
 }

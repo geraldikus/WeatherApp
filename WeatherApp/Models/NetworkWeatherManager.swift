@@ -12,12 +12,15 @@ struct NetworkWeatherManager {
     func fetchWeather(latitude: Double, longitude: Double, completionHandler: @escaping(Weather) -> Void) {
         
         let urlString = "https://api.weather.yandex.ru/v2/forecast?lat=\(latitude)&lon=\(longitude)"
+        
         guard let url = URL(string: urlString) else { return }
         
         var request = URLRequest(url: url, timeoutInterval: Double.infinity)
+//        var request = URLRequest(url: url, timeoutInterval: 3)
         request.addValue("47925ec5-5a90-4f40-973f-c7acd5d201b2", forHTTPHeaderField: "X-Yandex-API-Key")
         request.httpMethod = "GET"
         
+
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
                 print(String(describing: error))

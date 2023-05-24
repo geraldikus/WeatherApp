@@ -19,10 +19,10 @@ struct Info: Decodable {
 }
 
 struct Fact: Decodable {
-    let temp: Int
+    let temp: Double
     let icon: String
     let condition: String
-    let windSpeed: Int
+    let windSpeed: Double
     let pressureMm: Int
     
     enum CodingKeys: String, CodingKey {
