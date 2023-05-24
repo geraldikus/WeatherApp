@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A407D732A1E315C00093240 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3A407D722A1E315C00093240 /* SVGKit */; };
 		3A407D752A1E315C00093240 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A407D742A1E315C00093240 /* SVGKitSwift */; };
+		3A407D792A1E369700093240 /* addCityFromButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A407D782A1E369700093240 /* addCityFromButton.swift */; };
 		3A4DF87C2A1CED570079C415 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DF87B2A1CED570079C415 /* DetailViewController.swift */; };
 		3A849CBD2A1B877E005B77AA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CBC2A1B877E005B77AA /* Constant.swift */; };
 		3A849CBF2A1B8814005B77AA /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		2996ED68733CBC947E850395 /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3A407D782A1E369700093240 /* addCityFromButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCityFromButton.swift; sourceTree = "<group>"; };
 		3A4DF87B2A1CED570079C415 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3A849CBC2A1B877E005B77AA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				3A849CC12A1B8C7E005B77AA /* WeatherData.swift */,
 				3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */,
 				3AC802462A1C9B4100139F95 /* GetCitiesWeather.swift */,
+				3A407D782A1E369700093240 /* addCityFromButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A407D792A1E369700093240 /* addCityFromButton.swift in Sources */,
 				3ABECB452A179A3700DB8127 /* ListTableViewController.swift in Sources */,
 				3ABECB312A1796CE00DB8127 /* AppDelegate.swift in Sources */,
 				3AC802472A1C9B4100139F95 /* GetCitiesWeather.swift in Sources */,

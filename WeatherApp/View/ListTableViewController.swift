@@ -12,9 +12,21 @@ class ListTableViewController: UITableViewController {
     let emptyCity = Weather()
     
     var citiesArray = [Weather]()
-    let nameCitiesArray = ["Москва", "Тихвин", "Пенза", "Уфа", "Новосибирск", "Челябинск", "Екатеринбург", "Томск", "Сочи"]
+    var filterCityArray = [Weather]()
+    var nameCitiesArray = ["Москва", "Тихвин", "Пенза", "Уфа", "Новосибирск", "Челябинск", "Екатеринбург", "Томск", "Сочи"]
     
-    let networkWeatherManager = NetworkWeatherManager()
+    //let networkWeatherManager = NetworkWeatherManager()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false}
+        return text.isEmpty
+    }
+    
+    var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +36,26 @@ class ListTableViewController: UITableViewController {
         }
         
         addCities()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = true
        // networkWeatherManager.fetchWeather()
         
 
     }
+    
+    @IBAction func pressPlusButton(_ sender: UIBarButtonItem) {
+        alertPlusCity(name: "City", placeholder: "Enter the name of the city") { (city) in
+            self.nameCitiesArray.append(city)
+            self.citiesArray.append(self.emptyCity)
+            self.addCities()
+        }
+    }
+    
     
     func addCities() {
 
@@ -38,12 +66,6 @@ class ListTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-
-//            DispatchQueue.main.async {
-//                self.citiesArray[index] = weather
-//                self.citiesArray[index].name = self.nameCitiesArray[index]
-//                self.tableView.reloadData()
-//            }
             
         }
     }
@@ -54,6 +76,10 @@ class ListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if isFiltering == true {
+            return filterCityArray.count
+        }
+        
         return citiesArray.count
     }
 
@@ -62,6 +88,13 @@ class ListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListCell
         
         var weather = Weather()
+        
+        if isFiltering == true {
+            weather = filterCityArray[indexPath.row]
+        } else {
+            weather = citiesArray[indexPath.row]
+        }
+        
         weather = citiesArray[indexPath.row]
         cell.configure(weather: weather)
 
@@ -74,7 +107,14 @@ class ListTableViewController: UITableViewController {
             
             let editingRow = self.nameCitiesArray[indexPath.row]
             if let index = self.nameCitiesArray.firstIndex(of: editingRow) {
-                self.citiesArray.remove(at: index)
+                
+                if self.isFiltering == true {
+                    self.filterCityArray.remove(at: index)
+                } else {
+                    self.citiesArray.remove(at: index)
+                }
+                
+//                self.citiesArray.remove(at: index)
             }
             tableView.reloadData()
         }
@@ -87,10 +127,42 @@ class ListTableViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             
-            let cityWeather = citiesArray[indexPath.row]
-            let dstVC = segue.destination as! DetailViewController
-            dstVC.weatherModel = cityWeather
+            if isFiltering == true {
+                let filter = filterCityArray[indexPath.row]
+                let dstVC = segue.destination as! DetailViewController
+                dstVC.weatherModel = filter
+            } else {
+                let cityWeather = citiesArray[indexPath.row]
+                let dstVC = segue.destination as! DetailViewController
+                dstVC.weatherModel = cityWeather
+            }
+            
+            
         }
     }
 
+}
+
+extension ListTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        filterContentForDSearchText(searchController.searchBar.text!)
+        
+    }
+    
+//    private func filterContentForDSearchText(_ searchText: String) {
+//        filterCityArray = citiesArray.filter {
+//            $0.name.contains(searchText)
+//        }
+//        tableView.reloadData()
+//
+//    }
+    
+        private func filterContentForDSearchText(_ searchText: String) {
+            filterCityArray = citiesArray.filter {
+                $0.name.range(of: searchText, options: .caseInsensitive) != nil
+            }
+            tableView.reloadData()
+        }
+    
 }
