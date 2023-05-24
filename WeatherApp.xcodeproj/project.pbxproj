@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A407D732A1E315C00093240 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3A407D722A1E315C00093240 /* SVGKit */; };
+		3A407D752A1E315C00093240 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A407D742A1E315C00093240 /* SVGKitSwift */; };
 		3A4DF87C2A1CED570079C415 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DF87B2A1CED570079C415 /* DetailViewController.swift */; };
 		3A849CBD2A1B877E005B77AA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CBC2A1B877E005B77AA /* Constant.swift */; };
 		3A849CBF2A1B8814005B77AA /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A849CBE2A1B8814005B77AA /* NetworkWeatherManager.swift */; };
@@ -49,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A407D752A1E315C00093240 /* SVGKitSwift in Frameworks */,
+				3A407D732A1E315C00093240 /* SVGKit in Frameworks */,
 				8758BC2D8763366DF01EAD58 /* Pods_WeatherApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +137,6 @@
 				2996ED68733CBC947E850395 /* Pods-WeatherApp.debug.xcconfig */,
 				96DB05321F51489C50203D19 /* Pods-WeatherApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -148,13 +151,16 @@
 				3ABECB292A1796CE00DB8127 /* Sources */,
 				3ABECB2A2A1796CE00DB8127 /* Frameworks */,
 				3ABECB2B2A1796CE00DB8127 /* Resources */,
-				28DB75E70FFF2C87779AED8B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+				3A407D722A1E315C00093240 /* SVGKit */,
+				3A407D742A1E315C00093240 /* SVGKitSwift */,
+			);
 			productName = WeatherApp;
 			productReference = 3ABECB2D2A1796CE00DB8127 /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -183,6 +189,9 @@
 				Base,
 			);
 			mainGroup = 3ABECB242A1796CE00DB8127;
+			packageReferences = (
+				3A407D712A1E315C00093240 /* XCRemoteSwiftPackageReference "SVGKit" */,
+			);
 			productRefGroup = 3ABECB2E2A1796CE00DB8127 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -206,23 +215,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28DB75E70FFF2C87779AED8B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		729B107907924D9C8BCB654D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -489,6 +481,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A407D712A1E315C00093240 /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A407D722A1E315C00093240 /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A407D712A1E315C00093240 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		3A407D742A1E315C00093240 /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A407D712A1E315C00093240 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3ABECB252A1796CE00DB8127 /* Project object */;
 }
