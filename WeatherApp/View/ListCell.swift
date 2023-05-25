@@ -16,7 +16,7 @@ class ListCell: UITableViewCell {
     func configure(weather: Weather) {
         
         self.nameCityLabel.text = weather.name
-        self.conditionCityLabel.text = weather.condition
+        self.conditionCityLabel.text = weather.conditionString
         self.tempCityLabel.text = weather.temperatureString
         
     }

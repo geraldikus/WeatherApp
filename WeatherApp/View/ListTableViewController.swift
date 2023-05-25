@@ -15,8 +15,6 @@ class ListTableViewController: UITableViewController {
     var filterCityArray = [Weather]()
     var nameCitiesArray = ["Москва", "Тихвин", "Пенза", "Уфа", "Новосибирск", "Челябинск", "Екатеринбург", "Томск", "Сочи"]
     
-    //let networkWeatherManager = NetworkWeatherManager()
-    
     let searchController = UISearchController(searchResultsController: nil)
     
     var searchBarIsEmpty: Bool {
@@ -43,9 +41,7 @@ class ListTableViewController: UITableViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = true
-       // networkWeatherManager.fetchWeather()
-        
-
+    
     }
     
     @IBAction func pressPlusButton(_ sender: UIBarButtonItem) {
@@ -66,11 +62,9 @@ class ListTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            
+
         }
     }
-    
-    
 
     // MARK: - Table view data source
 
@@ -82,24 +76,22 @@ class ListTableViewController: UITableViewController {
         
         return citiesArray.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListCell
         
-        var weather = Weather()
-        
-        if isFiltering == true {
+        let weather: Weather
+        if isFiltering {
             weather = filterCityArray[indexPath.row]
         } else {
             weather = citiesArray[indexPath.row]
         }
         
-        weather = citiesArray[indexPath.row]
         cell.configure(weather: weather)
 
         return cell
     }
+
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -113,8 +105,6 @@ class ListTableViewController: UITableViewController {
                 } else {
                     self.citiesArray.remove(at: index)
                 }
-                
-//                self.citiesArray.remove(at: index)
             }
             tableView.reloadData()
         }
@@ -127,20 +117,17 @@ class ListTableViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             
-            if isFiltering == true {
-                let filter = filterCityArray[indexPath.row]
-                let dstVC = segue.destination as! DetailViewController
-                dstVC.weatherModel = filter
+            let weather: Weather
+            if isFiltering {
+                weather = filterCityArray[indexPath.row]
             } else {
-                let cityWeather = citiesArray[indexPath.row]
-                let dstVC = segue.destination as! DetailViewController
-                dstVC.weatherModel = cityWeather
+                weather = citiesArray[indexPath.row]
             }
             
-            
+            let dstVC = segue.destination as! DetailViewController
+            dstVC.weatherModel = weather
         }
     }
-
 }
 
 extension ListTableViewController: UISearchResultsUpdating {
@@ -150,19 +137,11 @@ extension ListTableViewController: UISearchResultsUpdating {
         
     }
     
-//    private func filterContentForDSearchText(_ searchText: String) {
-//        filterCityArray = citiesArray.filter {
-//            $0.name.contains(searchText)
-//        }
-//        tableView.reloadData()
-//
-//    }
-    
-        private func filterContentForDSearchText(_ searchText: String) {
-            filterCityArray = citiesArray.filter {
-                $0.name.range(of: searchText, options: .caseInsensitive) != nil
-            }
-            tableView.reloadData()
+    private func filterContentForDSearchText(_ searchText: String) {
+        filterCityArray = citiesArray.filter { (weather) -> Bool in
+            return weather.name.range(of: searchText, options: .caseInsensitive) != nil
         }
-    
+        tableView.reloadData()
+    }
+
 }

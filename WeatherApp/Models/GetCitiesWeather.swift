@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 let networkWeatherManager = NetworkWeatherManager()
 
@@ -31,3 +32,13 @@ func getCoordinateFrom(city: String, completion: @escaping(_ coordinate: CLLocat
     }
     
 }
+
+
+
+
+
+
+
+
+    
+
